@@ -20,7 +20,6 @@ jobs:
     - name: npm install, build, and test
       run: |
         npm ci
-        npm run test-compile --if-present
         npm run test --if-present
       env:
         CI: true
