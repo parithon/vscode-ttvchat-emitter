@@ -12,9 +12,9 @@ jobs:
         node-version: [12.x]
         vscode: ['1.29.0', '1.41.0']
         exclude:
-        # excludes older vscode version on all but one os variant
-        - os: [ubuntu-16.04,windows-latest,macos-latest]
-          vscode: ['1.29.0']
+          # excludes older vscode version on all but one os variant
+          - os: [ubuntu-16.04,windows-latest,macos-latest]
+            vscode: ['1.29.0']
 
     runs-on: ${{ matrix.os }}
 
