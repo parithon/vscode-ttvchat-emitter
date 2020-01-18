@@ -31,3 +31,7 @@ This extension provides the following API endpoints:
   - `turby: string`
   - `premium: string`
   - `follower: string` either true or false
+
+## Example Process Flow
+
+![Example Process Flow](./resources/example-flow.png)
