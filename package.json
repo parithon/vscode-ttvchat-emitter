@@ -1,0 +1,103 @@
+{
+	"name": "vscode-ttvchat-emitter",
+	"displayName": "Twitch Chat Emitter",
+	"description": "An emitter extension for Twitch Chat",
+	"version": "0.0.1",
+	"preview": true,
+	"publisher": "parithon",
+	"engines": {
+		"vscode": "^1.41.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"*"
+	],
+	"main": "./out/extension.js",
+	"contributes": {
+		"commands": [
+			{
+				"command": "ttvChatEmitter.signIn",
+				"title": "Sign-in to Twitch",
+				"category": "Twitch Chat Emitter"
+			},
+			{
+				"command": "ttvChatEmitter.signOut",
+				"title": "Sign-out of Twitch",
+				"category": "Twitch Chat Emitter"
+			},
+			{
+				"command": "ttvChatEmitter.connect",
+				"title": "Connect to Twitch",
+				"category": "Twitch Chat Emitter"
+			},
+			{
+				"command": "ttvChatEmitter.disconnect",
+				"title": "Disconnect from Twitch",
+				"category": "Twitch Chat Emitter"
+			}
+		],
+		"configuration": {
+			"title": "Twitch Chat Emitter",
+			"properties": {
+				"ttvChatEmitter.announceBot": {
+					"type": "boolean",
+					"title": "Announce Bot",
+					"defalut": true,
+					"descriptoin": "Whether or not the bot should announce its joining or leaving the chat room"
+				},
+				"ttvChatEmitter.joinMessage": {
+					"type": "string",
+					"title": "Bot Join Message",
+					"default": "VSCode Twitch Chat Emitter in the house!",
+					"description": "The message the bot will say when joining a chat room"
+				},
+				"ttvChatEmitter.leaveMessage": {
+					"type": "string",
+					"title": "Bot Leave Message",
+					"default": "VSCode Twitch Chat Emitter has left the building!"
+				},
+				"ttvChatEmitter.requiredBadges": {
+					"type": "array",
+					"title": "Required Badges (if any)",
+					"default": [],
+					"markdownDescription": "A list of badges required to use the highlighter command. The use must have at least one of these badges to use the command. Leave blank for no requirement. Example: moderator, subscriber, vip.",
+					"items": {
+						"type": "string",
+						"pattern": "(admin|bits|broadcaster|global_mod|moderator|subscriber|staff|turbo|premium|follower)*",
+						"errorMessage": "Expected one of the following: admin, bits, broadcaster, global_admin, moderator, subscriber, staff, turbo, premium, follower"
+					}
+				}
+			}
+		}
+	},
+	"scripts": {
+		"vscode:prepublish": "npm run compile",
+		"compile": "copyfiles -au 1 ./src/**/*.htm out/ && tsc -p ./",
+		"watch": "copyfiles -au 1 ./src/**/*.htm out/ && tsc -watch -p ./",
+		"pretest": "npm run compile",
+		"test": "node ./out/test/runTest.js"
+	},
+	"devDependencies": {
+		"@types/glob": "^7.1.1",
+		"@types/keytar": "^4.4.2",
+		"@types/mocha": "^5.2.7",
+		"@types/node": "^12.11.7",
+		"@types/request": "^2.48.4",
+		"@types/tmi.js": "^1.4.0",
+		"@types/uuid": "^3.4.6",
+		"@types/vscode": "^1.41.0",
+		"copyfiles": "^2.2.0",
+		"glob": "^7.1.5",
+		"mocha": "^6.2.2",
+		"tslint": "^5.20.0",
+		"typescript": "^3.6.4",
+		"vscode-test": "^1.2.2"
+	},
+	"dependencies": {
+		"request": "^2.88.0",
+		"tmi.js": "^1.5.0",
+		"uuid": "^3.4.0"
+	}
+}
