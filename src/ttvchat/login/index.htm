@@ -3,13 +3,30 @@
 <head>
     <script type="text/javascript">
         window.onload = function () {
-            window.location.href = 'oauth?' + window.location.hash.replace('#', '');
+            if (window.location.href.indexOf("#") > -1) {
+                window.location.href = 'oauth?' + window.location.hash.replace('#', '');
+            }
+            else if (window.location.href.indexOf("oauth?") > -1) {
+                window.location.href = "complete";
+            }
+            else {
+                setTimeout(() => window.close(), 1000);
+            }
         };
     </script>
+    <style>
+        .flex-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #232323;
+            color: #efefef;
+        }
+    </style>
 </head>
 
-<body>
-    <h1>You can close the browser</h1>
+<body class="flex-container">  
+    <h1>You can close this browser tab.</h1>
 </body>
 
 </html>

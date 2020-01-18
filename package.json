@@ -1,8 +1,8 @@
 {
 	"name": "vscode-ttvchat-emitter",
-	"displayName": "Twitch Chat Emitter",
-	"description": "An emitter extension for Twitch Chat",
-	"version": "0.0.1",
+	"displayName": "Ttv Chat Emitter for VS Code",
+	"description": "An emitter extension for Twitch Chat which will login to Twitch using OAuth2 and emit messages received from Twitch.",
+	"version": "0.1.0",
 	"preview": true,
 	"publisher": "parithon",
 	"engines": {

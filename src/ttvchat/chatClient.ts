@@ -21,8 +21,9 @@ export interface TtvClientConnectionChangedEvent {
 }
 
 export interface TtvClientMessageReceivedEvent {
-  userState: ChatUserstate;
+  username: string;
   message: string;
+  badges: IBadges;
 }
 
 export interface IBadges extends Badges {
@@ -97,8 +98,9 @@ export class ChatClient implements vscode.Disposable {
     }
 
     this._onTtvClientMessageReceived.fire({
-      userState,
-      message
+      username: userState.username!,
+      message,
+      badges
     });
   }
 
