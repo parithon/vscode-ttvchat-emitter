@@ -1,5 +1,7 @@
 # Ttv Chat Emitter for VS Code
 
+![Logo](./resources/icon-96.png)
+
 The Ttv Chat Emitter for VS Code extension provides a single sign-in and chat listener for VS Code extensions that interact with Twitch Chat. This extension will handle the authentication with Twitch using an OAuth token and receiving/sending of messages to/from Twitch's chat service and emit the receiving messages to all extensions that listen.
 
 ## API

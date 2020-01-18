@@ -9,6 +9,7 @@
 		"type": "git",
 		"url": "https://github.com/parithon/vscode-ttvchat-emitter"
 	},
+	"icon": "resources/icon-128.png",
 	"engines": {
 		"vscode": "^1.41.0"
 	},
