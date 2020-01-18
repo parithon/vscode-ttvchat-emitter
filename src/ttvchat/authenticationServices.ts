@@ -69,10 +69,8 @@ export class AuthenticationService {
 
   private createServer(state: string) {
     const indexFile = path.join(extensions.getExtension(constants.extensionId)!.extensionPath, 'out', 'ttvchat', 'login', 'index.htm');
-    const completeFile = path.join(extensions.getExtension(constants.extensionId)!.extensionPath, 'out', 'ttvchat', 'login', 'complete.htm');
     const index = readFileSync(indexFile);
-    const complete = readFileSync(completeFile);
-    if (index && complete) {
+    if (index) {
       const server = http.createServer(async (req, res) => {
         const mReq = url.parse(req.url!, true);
         const mReqPath = mReq.pathname;
@@ -94,7 +92,7 @@ export class AuthenticationService {
           }
 
           res.writeHead(200);
-          res.end(complete);
+          res.end(index);
 
           const validationResult = await API.validateToken(q.access_token);
           if (keytar && validationResult.valid) {
@@ -105,7 +103,7 @@ export class AuthenticationService {
         }
         else if (mReqPath === '/complete') {
           res.writeHead(200);
-          res.end(complete);
+          res.end(index);
           setTimeout(() => server.close(), 3000);
         }
         else if (mReqPath === '/favicon.ico') {
