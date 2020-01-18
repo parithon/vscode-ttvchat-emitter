@@ -33,4 +33,4 @@ jobs:
       env:
         CI: true
         DISPLAY: :10
-        VSCODE: ${{ vscode }}
+        VSCODE: ${{ matrix.vscode }}
