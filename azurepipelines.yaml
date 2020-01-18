@@ -2,12 +2,6 @@ jobs:
 - job: 'Build'  
   strategy:
     matrix:
-      linux_node-8.x:
-        imageName: 'ubuntu-16.04'
-        node_version: 8.x
-      linux_node-10.x:
-        imageName: 'ubuntu-16.04'
-        node_version: 10.x
       linux_node-12.x:
         imageName: 'ubuntu-16.04'
         node_version: 12.x
