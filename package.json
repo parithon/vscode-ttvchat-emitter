@@ -78,11 +78,12 @@
 	},
 	"main": "./out/extension.js",
 	"scripts": {
-		"vscode:prepublish": "npm run compile",
-		"compile": "webpack --mode production",
+		"vscode:prepublish": "webpack --mode production",
+		"compile": "webpack --mode development",
 		"watch": "tsc -p ./ --watch",
 		"webpack:watch": "webpack --mode development --watch",
-		"pretest": "npm run compile",
+		"lint": "tslint -p ./",
+		"pretest": "npm run test-compile",
 		"test-compile": "tsc -p ./",
 		"test": "node ./out/test/runTest.js"
 	},
