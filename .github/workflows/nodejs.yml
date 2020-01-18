@@ -15,12 +15,15 @@ jobs:
           # excludes older vscode version on all but one os variant
           - os: ubuntu-16.04
             vscode: '1.29.0'
+          - os: ubuntu-16.04
             vscode: '1.32.0'
           - os: windows-latest
             vscode: '1.29.0'
+          - os: windows-latest
             vscode: '1.32.0'
           - os: macos-latest
             vscode: '1.29.0'
+          - os: macos-latest
             vscode: '1.32.0'
 
     runs-on: ${{ matrix.os }}
