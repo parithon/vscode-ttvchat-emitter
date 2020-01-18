@@ -1,0 +1,40 @@
+name: Tests
+
+on: 
+  pull_request:
+    branches: 
+      - master
+      - vnext
+
+jobs:
+  test:
+
+    strategy:
+      fail-fast: true
+      matrix:
+        os: [ubuntu-16.04,ubuntu-latest,windows-latest,macos-latest]
+        node-version: [12.x]
+        vscode: ['1.41.0']
+
+    runs-on: ${{ matrix.os }}
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+    - name: Start xvfb if running Linux
+      if: matrix.os == 'ubuntu-latest' || matrix.os == 'ubuntu-16.04'
+      run: |
+        set -e
+        /usr/bin/Xvfb :10 -ac >> /tmp/Xvfb.out 2>&1 &
+        disown -ar
+    - name: npm install, build, and test
+      run: |
+        npm ci
+        npm run test --if-present
+      env:
+        CI: true
+        DISPLAY: :10
+        VSCODE: ${{ matrix.vscode }}
