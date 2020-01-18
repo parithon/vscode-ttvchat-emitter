@@ -9,6 +9,7 @@ jobs:
       matrix:
         os: [ubuntu-16.04,ubuntu-latest,windows-latest,macos-latest]
         node-version: [12.x]
+        vscode-version: [1.29.0,1.41.0]
 
     runs-on: ${{ matrix.os }}
 
@@ -31,3 +32,4 @@ jobs:
       env:
         CI: true
         DISPLAY: :10
+        VSCODE: ${{ vscode-version }}
