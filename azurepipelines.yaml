@@ -60,32 +60,3 @@ jobs:
         testResultsFormat: 'JUnit'
         testResultsFiles: '**/TEST-*.xml'
         testRunTitle: '$(Agent.OS) (node: $(node_version))'
-
-- job: 'Publish'
-  displayName: 'Publish VSIX Package'
-  dependsOn: 'Build'
-  condition: succeeded()
-  
-  pool: 
-    vmImage: 'macOS-10.13'
-  
-  steps:
-  - task: NodeTool@0
-    displayName: 'Use node 12.x'
-    inputs:
-      versionSpec: 12.x
-  - task: Npm@1
-    displayName: 'Install dependencies'
-    inputs:
-      command: install
-      verbose: false
-  - task: Npm@1
-    displayName: 'Create VSIX Package'
-    inputs:
-      command: custom
-      customCommand: 'run package'
-      verbose: false
-  - task: PublishPipelineArtifact@0
-    displayName: 'Publish Pipeline Artifact'
-    inputs:
-      targetPath: 'release.vsix'
