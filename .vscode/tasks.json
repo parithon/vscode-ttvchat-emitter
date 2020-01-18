@@ -15,6 +15,60 @@
 				"kind": "build",
 				"isDefault": true
 			}
+		},
+		{
+			"type": "npm",
+			"script": "webpack:watch",
+			"problemMatcher": [
+				{
+					"owner": "webpack",
+					"severity": "error",
+					"fileLocation": "relative",
+					"pattern": [
+						{
+							"regexp": "ERROR in (.*)",
+							"file": 1
+						},
+						{
+							"regexp": "\\((\\d+,\\d+)\\): (.*)",
+							"location": 1,
+							"message": 2
+						}
+					],
+					"background": {
+						"activeOnStart": true,
+						"beginsPattern": "Hash: [\\d|\\w]+",
+						"endsPattern": "Built at: \\d{2}/\\d{2}/\\d{4} \\d{2}:\\d{2}:\\d{2} [AM|PM]"
+					}
+				},
+				{
+					"owner": "webpack",
+					"severity": "error",
+					"fileLocation": "relative",
+					"pattern": [
+						{
+							"regexp": "ERROR (.*)",
+							"file": 1
+						},
+						{
+							"regexp": "^(\\w[\\w\\s]*:( \\w+:)* .*)(\\((\\d+:\\d+)?\\))?",
+							"message": 1,
+							"location": 3
+						},
+						{
+							"regexp": ".*(\\d+):(\\d+)-?(\\d+)?(.*)",
+							"line": 1,
+							"loop": true
+						}
+					],
+					"background": {
+						"activeOnStart": true,
+						"beginsPattern": "Hash [\\d|\\w]+",
+						"endsPattern": "Built at: \\d{2}/\\d{2}/\\d{4} \\d{2}:\\d{2}:\\d{2} [AM|PM]"
+					}
+				}
+			],
+			"isBackground": true
 		}
 	]
 }

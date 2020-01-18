@@ -13,4 +13,6 @@ export function activate(context: vscode.ExtensionContext) {
 	return app.API;
 }
 
-export function deactivate() {}
+export function deactivate() {
+	app.dispose();
+}
