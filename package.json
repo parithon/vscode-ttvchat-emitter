@@ -2,7 +2,7 @@
 	"name": "vscode-ttvchat-emitter",
 	"displayName": "Ttv Chat Emitter for VS Code",
 	"description": "An emitter extension for Twitch Chat which will login to Twitch using OAuth2 and emit messages received from Twitch.",
-	"version": "0.1.0",
+	"version": "0.2.0",
 	"preview": true,
 	"publisher": "parithon",
 	"repository": {
@@ -80,7 +80,7 @@
 	"scripts": {
 		"vscode:prepublish": "webpack --mode production",
 		"compile": "webpack --mode development",
-		"watch": "tsc -p ./ --watch",
+		"watch": "copyfiles -au 1 ./src/**/*.htm out/ && tsc -p ./ --watch",
 		"webpack:watch": "webpack --mode development --watch",
 		"lint": "tslint -p ./",
 		"pretest": "npm run test-compile",
@@ -110,6 +110,7 @@
 		"webpack-cli": "^3.3.10"
 	},
 	"dependencies": {
+		"copyfiles": "^2.2.0",
 		"request": "^2.88.0",
 		"tmi.js": "^1.5.0",
 		"uuid": "^3.4.0"
