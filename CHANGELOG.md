@@ -70,6 +70,8 @@ onTtvClientConnectionChanged: Event<TtvClientConnectionChangedEvent>;
 onTtvClientRecievedMessage: Event<TtvClientMessageReceivedEvent>;
 ```
 
+- [0.1.0][0.1.0] Initial preview release
+
 ## [Unreleased]
 
 [0.1.0->0.2.0]: https://github.com/parithon/vscode-ttvchat-emitter/compare/0.1.0...0.2.0
