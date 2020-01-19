@@ -98,7 +98,14 @@ export class App implements vscode.Disposable {
     return {
       sendMessage: this.ttvClient.sendMessage.bind(this.ttvClient),
       onTtvClientConnectionChanged: this.ttvClient.onTtvClientConnectionChanged,
-      onTtvClientRecievedMessage: this.ttvClient.onTtvClientMessageReceived
+      onTtvClientRecievedMessage: this.ttvClient.onTtvClientMessageReceived,
+      onTtvClientCheerReceived: this.ttvClient.onTtvClientCheerReceived,
+      onTtvClientHosted: this.ttvClient.onTtvClientHosted,
+      onTtvClientRaided: this.ttvClient.onTtvClientRaided,
+      onTtvClientSubscriptionReceived: this.ttvClient.onTtvClientSubscriptionReceived,
+      onTtvClientResubReceived: this.ttvClient.onTtvClientResubReceived,
+      onTtvClientSubGiftReceived: this.ttvClient.onTtvClientSubGiftReceived,
+      onTtvClientMysterySubGiftReceived: this.ttvClient.onTtvClientMysterySubGiftReceived
     };
   }
 

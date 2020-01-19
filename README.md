@@ -15,28 +15,13 @@ This extension provides the following API endpoints:
 - `sendMessage(message: string): Promise<void>` Used to send messages to the twitch chat service
 - `onTtvClientConnectionChanged: Event<TtvClientConnectionChangedEvent>` Raised when the twitch chat client connects or disconnects
 - `onTtvClientRecievedMessage: Event<TtvClientMessageReceivedEvent>` Raised whenever a message is received from twitch' chat service
-
-`TtvClientConnectionChangedEvent` is an object with the following properties:
-
-- `connected: boolean` Whether we're connected or disconnected
-- `address: string` The server address we connected to
-- `port: number` The port used to connect to the server
-
-`TtvClientMessageReceivedEvent` is an object with the following properties:
-
-- `username: string`
-- `message: string`
-- `badges: IBadges` with exception of `follower` the following are only present if they user has the badge
-  - `admin?: string`
-  - `bits?: string`
-  - `broadcaster?: string`
-  - `global_mod?: string`
-  - `moderator?: string`
-  - `subscriber?: string`
-  - `staff: string`
-  - `turby: string`
-  - `premium: string`
-  - `follower: string` either true or false
+- `onTtvClientCheerReceived: Event<TtvClientCheerReceivedEvent>` Event that fires whenever a cheer is received.
+- `onTtvClientHosted: Event<TtvClientHostedEvent>` Event that fires whenever a hosted event occurs.
+- `onTtvClientRaided: Event<TtvClientRaidedEvent>` Event that fires whenver a raid occurs.
+- `onTtvClientSubscriptionReceived: Event<TtvClientSubscriptionEvent>` Event that fires whenever someone subscribes.
+- `onTtvClientResubReceived: Event<TtvClientResubEvent>` Event that fires whenever someone re-subscribes.
+- `onTtvClientSubGiftReceived: Event<TtvClientSubGiftEvent>` Event that fires whenever a gifted subscription occurs.
+- `onTtvClientMysterySubGiftReceived: Event<TtvClientMysteryGiftEvent>` Event that fires whenever a mystery gifted subscription occurs.
 
 ## Example Process Flow
 
